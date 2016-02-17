@@ -7,17 +7,22 @@ import java.net.*;
 import java.util.Scanner;
 public class server{
     public static void main(String args[]) throws Exception{
+        DatagramSocket serverSocket = null;
+        DatagramPacket receivePacket = null;
+        DatagramPacket sendPacket = null;
+        DatagramPacket send2ClientPacket = null;
+
         System.out.print("Enter a socket: ");
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         int selectedSock = Integer.parseInt(inFromUser.readLine());
-        DatagramSocket serverSocket = new DatagramSocket(selectedSock);
+        serverSocket = new DatagramSocket(selectedSock);
         System.out.println();
         System.out.println("Success. Listening on port: " + selectedSock);
 
         while(true){
+
             byte[] receiveData = new byte[1024];
-            DatagramPacket receivePacket =
-                    new DatagramPacket(receiveData,receiveData.length);
+            receivePacket = new DatagramPacket(receiveData,receiveData.length);
             serverSocket.receive(receivePacket);
             String message = new String(receiveData);
             InetAddress IPAddress = receivePacket.getAddress();

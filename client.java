@@ -30,6 +30,7 @@ public class client {
                     new DatagramPacket(sendData,sendData.length,IPAddress,port);
             clientSocket.send(sendPacket);
 
+            System.out.println("Message sent to server!");
 
             byte[] receiveData = new byte[1024];
             DatagramPacket receivePacket =
@@ -38,11 +39,11 @@ public class client {
             String serverMessage = new String(receivePacket.getData());
             System.out.println("Got from server: "+serverMessage);
 
-            if (message.equals("")){
+            if (serverMessage.trim().equals("good bye!")){
                 System.out.println("you have requested exit!");
                 System.exit(0);
             }
-            System.out.println("Message sent to server!");
+
         }
     }
 
