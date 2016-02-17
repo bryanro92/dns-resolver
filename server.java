@@ -33,7 +33,7 @@ public class server{
                 System.out.println("Client requested exit!");
                 message = "good bye!";
                 byte[] sendData = message.getBytes();
-                DatagramPacket sendPacket =
+                sendPacket =
                         new DatagramPacket(sendData,sendData.length,IPAddress,port);
                 serverSocket.send(sendPacket);
             }
@@ -41,7 +41,7 @@ public class server{
                 System.out.println("Got message: "+message + " from client "
                         + receivePacket.getAddress());
                 byte[] sendData = message.getBytes();
-                DatagramPacket sendPacket =
+                sendPacket =
                         new DatagramPacket(sendData,sendData.length,IPAddress,port);
                 serverSocket.send(sendPacket);
             }
