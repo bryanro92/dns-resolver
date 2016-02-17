@@ -19,7 +19,7 @@ public class client {
         System.out.println("Enter in a socket: ");
         port = Integer.parseInt(inFromUser.readLine());
         while (true){
-            System.out.print("Enter a message: ");
+            System.out.print("Enter a website: ");
             String message = inFromUser.readLine();
             System.out.println();
             byte[] sendData = new byte[1024];
