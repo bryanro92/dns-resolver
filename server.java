@@ -32,19 +32,15 @@ public class server{
             if (message.equals("/exit")){
                 System.out.println("Client requested exit!");
                 message = "good bye!";
-                byte[] sendData = message.getBytes();
-                sendPacket =
-                        new DatagramPacket(sendData,sendData.length,IPAddress,port);
-                serverSocket.send(sendPacket);
             }
-            else {
+
                 System.out.println("Got message: "+message + " from client "
                         + receivePacket.getAddress());
                 byte[] sendData = message.getBytes();
                 sendPacket =
                         new DatagramPacket(sendData,sendData.length,IPAddress,port);
                 serverSocket.send(sendPacket);
-            }
+
 
         }
     }
