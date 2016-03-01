@@ -228,7 +228,7 @@ class PacketInfo {
       int secondHalfTTL = readUnsignedShort();
       int ttl = ((firstHalfTTL << 16) | secondHalfTTL);
       aString += ("\n" + "TTL: " + ttl);
-    //  System.out.println("TTL: " + ttl); seems to work?
+      System.out.println("TTL: " + ttl);// seems to work?
 
       /** read rdlength record */
       int rdlength = readUnsignedShort();
@@ -556,12 +556,9 @@ class PacketInfo {
   * @returns the position of the next byte after the copy.
   *******************************************************************/
   private int insertString(String s, int pos) {
-
     byte[] b = s.getBytes();
-
     for(int i = 0; i < b.length; i++)
       setIByte(pos + i, b[i]);
-
     return (pos + b.length + 1);
   }
 
